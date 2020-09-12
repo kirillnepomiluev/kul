@@ -41,7 +41,7 @@ class _HomePageState extends State<HomePage> {
                   margin: EdgeInsets.all(20.0),
                   child: Column(
                     children: [
-                      myCard(context,color: Colors.white,elevation: 12,shadowColor: Colors.black,radius: 3,
+                      myCard(context, color: Colors.white,elevation: 12,shadowColor: Colors.black,radius: 3,
                           child: Container(
                             margin: EdgeInsets.all(15.0),
 //                            height: MediaQuery.of(context).size.height * 0.4,

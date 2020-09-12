@@ -6,6 +6,7 @@ import 'package:kul/widgets/myCard.dart';
 
 import '../main.dart';
 import '../topTabBarSilver.dart';
+import 'mylgotsPage.dart';
 
 class AnketaPage extends StatefulWidget {
   @override
@@ -15,6 +16,7 @@ class AnketaPage extends StatefulWidget {
 class _AnketaPageState extends State<AnketaPage> {
 
   String url = "questionTest";
+  List<String> lgotsList = [];
 
   @override
   Widget build(BuildContext context) {
@@ -43,7 +45,7 @@ class _AnketaPageState extends State<AnketaPage> {
                   margin: EdgeInsets.all(20.0) ,
                   child: Column(
                     children: [
-                      myCard(context, color: Colors.white,elevation: 12,shadowColor: Colors.black,radius: 3,
+                      myCard(context, color: Colors.white,elevation: 12,shadowColor: Colors.black,radius: 30,
                           child: Container(
                             width: MediaQuery.of(context).size.width*0.8,
                             margin: EdgeInsets.all(15.0) ,
@@ -58,17 +60,51 @@ class _AnketaPageState extends State<AnketaPage> {
                                   case ConnectionState.waiting: return new Text('Loading...');
                                   default:
                                    List<DocumentSnapshot> docsList = snapshot.data.docs;
-                                    return new ListView.builder(
-                                        shrinkWrap: true,
-                                        physics: NeverScrollableScrollPhysics(),
-                                        itemCount:  snapshot.data.docs.length,
-                                        itemBuilder: (BuildContext ctx, int index) {
-                                          return  Container(
-                                            child: buildMYQuestion( context ,  docsList.elementAt(index)),
+                                   docsList.forEach((element) {
+                                     if (element.id =="lgots") {
+                                       Map <String, dynamic> mapData = element.data();
 
-                                          );
-                                        }
-                                    );
+                                       List<String> idslgotsStrings =[];
+                                       mapData.forEach((key, value) {
+                                         idslgotsStrings.add(value);
+                                       });
+                                       lgotsList.addAll(idslgotsStrings);
+                                     }
+                                   });
+
+                                    return  Container(child: Row(children: <Widget>[
+                                      Expanded( flex: 3,
+                                        child:  ListView.builder(
+                                          shrinkWrap: true,
+                                          physics: NeverScrollableScrollPhysics(),
+                                          itemCount:  snapshot.data.docs.length,
+                                          itemBuilder: (BuildContext ctx, int index) {
+                                            DocumentSnapshot doc =docsList.elementAt(index);
+                                            if (doc.id =="lgots") {
+                                              return Container();
+                                            }
+                                            return  Container(
+                                              child: buildMYQuestion( context ,  doc),
+                                            );
+                                          }
+                                      ),),
+                                      Expanded(child:
+                                        FlatButton(
+                                          onPressed: () {
+                                            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                                              print( "lg" +lgotsList.toString() );
+                                              return myLgotsPage(lgotsList);
+                                            }));
+                                          },
+                                          child:  Container(
+                                            height: MediaQuery.of(context).size.height * 0.3,
+                                            child: Text( " Доступно льгот: " + lgotsList.length.toString()),),
+                                        )
+                                        ,)
+
+
+
+                                    ],),);
                                 }
                               },),
                           ))
@@ -84,14 +120,15 @@ class _AnketaPageState extends State<AnketaPage> {
   }
 
   Widget  buildMYQuestion (BuildContext context, DocumentSnapshot documentSnapshot) {
+
     Map <String, dynamic> data = documentSnapshot.data();
-    List<dynamic> answers = data["answers"];
+    List<dynamic> answers = data["answers"]?? [];
 
     return Container ( child: Column(children: <Widget>[
       Container( child: Text(data["name"] ),),
 
           Container(
-            height:  MediaQuery.of(context).size.height*0.5,
+            height:  MediaQuery.of(context).size.height*0.2,
             width: MediaQuery.of(context).size.width*0.9,
             child: ListView.builder(
 
@@ -104,7 +141,6 @@ class _AnketaPageState extends State<AnketaPage> {
 
                       child: Text(answers[item].toString())),),
                     onPressed: () {
-
                         setState(() {
                           url = url + "/" + documentSnapshot.id + "/" + item.toString();
                         });
