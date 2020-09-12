@@ -111,10 +111,12 @@ class _HomePageState extends State<HomePage> {
             children: [
               Expanded(
                 child: Container(
+                  margin: EdgeInsets.all(20.0) ,
                   child: Column(
                     children: [
                       myCard(context,
                           child: Container(
+                            margin: EdgeInsets.all(15.0) ,
                             height: MediaQuery.of(context).size.height * 0.5,
                             child: Text(
                               'Уважаемые пользователи! У Вас есть возможность узнать о'
