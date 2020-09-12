@@ -23,6 +23,15 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
         textTheme: TextTheme(
+          bodyText1: TextStyle(fontSize: 20.0),
+            bodyText2: TextStyle(fontSize: 20.0),
+          subtitle1:  TextStyle(fontSize: 20.0),
+          subtitle2:  TextStyle(fontSize: 20.0),
+        headline1: TextStyle(fontSize: 20.0),
+        headline2: TextStyle(fontSize: 20.0),
+        headline3: TextStyle(fontSize: 20.0),
+        headline4: TextStyle(fontSize: 20.0),
+        headline5: TextStyle(fontSize: 20.0),
 
         )
       ),

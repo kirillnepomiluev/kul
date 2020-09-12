@@ -43,7 +43,7 @@ Widget myPaginacia (BuildContext context){
                       fontWeight: FontWeight.bold),
                 ),
                 onPressed: () {
-//                          Navigator.pushNamed(context, '/scancartrige');
+                          Navigator.pushNamed(context, '/');
                 },
               ),
             ),
@@ -68,8 +68,8 @@ Widget myPaginacia (BuildContext context){
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.bold)),
                 onPressed: () {
-//                          Navigator.pushNamed(
-//                              context, '/ScanCartrigeInfoPacient');
+                          Navigator.pushNamed(
+                              context, '/anketa');
                 },
               ),
             ),
