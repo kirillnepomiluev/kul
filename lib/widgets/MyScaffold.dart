@@ -14,7 +14,7 @@ Scaffold buildMyScaffold(BuildContext context, Widget body, String title,
       bool actionsAppBar = true}) {
   return Scaffold(
     appBar: isAppbar ? buildAppBar(context, title)        : null,
-    backgroundColor: isColorBlack? Theme.of(context).scaffoldBackgroundColor : Colors.black87,
+    backgroundColor: Color(0xFF9FA09A),
     body: body,
   );
 }

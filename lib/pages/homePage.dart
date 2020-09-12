@@ -28,103 +28,36 @@ class _HomePageState extends State<HomePage> {
 
   Widget buildMyHome(BuildContext context) {
     return Scaffold(
+//      backgroundColor: Color(0xFF9FA09A),
       body: Column(
         children: [
           Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              //          Пагинация
-              Container(
-                child:
-                    Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-                  Container(
-                    decoration: BoxDecoration(
-                      border: Border.all(
-                          color: Colors.white,
-                          width: 1,
-                          style: BorderStyle.solid),
-                      color: Colors.black,
-                    ),
-                    child: FlatButton(
-                      child: Text(
-                        'Домашняя',
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontFamily: "OpenSansReg",
-                            fontSize: 16,
-                            fontStyle: FontStyle.normal,
-                            fontWeight: FontWeight.normal),
-                      ),
-                      onPressed: () {
-//                          Navigator.pushNamed(context, '/scancartrige');
-                      },
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(colors: <Color>[
-                        Color(0xFF007AFF),
-                        Color(0xFF1ED761)
-                      ]),
-//                        border: Border.all(width: 1, style: BorderStyle.solid,color: Color(0xFFF2F2F2)),
-                    ),
-                    child: FlatButton(
-                      child: Text('Заполнить анкету',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: "OpenSansReg",
-                              fontSize: 16,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.normal)),
-                      onPressed: () {
-//                          Navigator.pushNamed(
-//                              context, '/ScanCartrigeInfoPacient');
-                      },
-                    ),
-                  ),
-                  Container(
-                    decoration: BoxDecoration(
-                      color: Colors.black,
-                      border: Border.all(
-                          color: Color(0xFFF2F2F2),
-                          width: 1,
-                          style: BorderStyle.solid),
-                    ),
-                    child: FlatButton(
-                      child: Text('Категории льгот',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontFamily: "OpenSansReg",
-                              fontSize: 16,
-                              fontStyle: FontStyle.normal,
-                              fontWeight: FontWeight.normal)),
-                      onPressed: () {
-//                          Navigator.pushNamed(context, '/DataVerification');
-                      },
-                    ),
-                  ),
-                ]),
-              )
-            ],
+            children: [Expanded(child: myPaginacia(context))],
           ),
           Row(
             children: [
               Expanded(
                 child: Container(
-                  margin: EdgeInsets.all(20.0) ,
+                  margin: EdgeInsets.all(20.0),
                   child: Column(
                     children: [
-                      myCard(context,
+                      myCard(context,color: Colors.white,elevation: 12,shadowColor: Colors.black,radius: 3,
                           child: Container(
-                            margin: EdgeInsets.all(15.0) ,
-                            height: MediaQuery.of(context).size.height * 0.5,
-                            child: Text(
+                            margin: EdgeInsets.all(15.0),
+//                            height: MediaQuery.of(context).size.height * 0.4,
+                            child: Center(child: Text(
                               'Уважаемые пользователи! У Вас есть возможность узнать о'
                               'положенных Вам льготах, либо проверить себя в базе  данных Самарской области по отдельным льготным категориям. '
                               'Для проверки учёта, введите свои данные и нажмите кнопку «Проверить»',
+                              textAlign: TextAlign.center,
                               style: TextStyle(fontSize: 30),
-                            ),
-                          ))
+                            ),),
+                          )),
+                      Padding(padding: EdgeInsets.all(20),),
+                      Container(
+                        height: 150,
+                        width: 150,
+                        child: Image.asset('assets/family.png'),)
                     ],
                   ),
                 ),
