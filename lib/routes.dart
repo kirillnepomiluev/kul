@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:kul/pages/anketaPage.dart';
+import 'package:kul/pages/categoriesPage.dart';
 import 'package:kul/pages/homePage.dart';
 
 class Router {
@@ -11,6 +12,8 @@ class Router {
 
       case '/anketa':
         return MaterialPageRoute(builder: (_) => AnketaPage());
+      case '/categoriesPage':
+        return MaterialPageRoute(builder: (_) => CategoriesPage());
 
       default:
         return MaterialPageRoute(

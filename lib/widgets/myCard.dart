@@ -97,7 +97,7 @@ Widget myPaginacia (BuildContext context){
                         fontStyle: FontStyle.normal,
                         fontWeight: FontWeight.bold)),
                 onPressed: () {
-//                          Navigator.pushNamed(context, '/DataVerification');
+                          Navigator.pushNamed(context, '/categoriesPage');
                 },
               ),
             ),
