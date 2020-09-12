@@ -53,28 +53,28 @@ class _MainCollapsingToolbarState extends State<MainCollapsingToolbar>
           new SliverOverlapAbsorber(
             handle:
             NestedScrollView.sliverOverlapAbsorberHandleFor(context),
-//                sliver: _buildSliverAppBar(context),
-          ),
-          SliverAppBar(
-            leading: widget.leadingWidget,
-            expandedHeight: widget.expandleHeight,
-            floating: false,
-            pinned: true,
-            flexibleSpace: FlexibleSpaceBar(
-                collapseMode: CollapseMode.parallax,
-                centerTitle: widget.centerTitile,
-                title: Container(
-                  padding: EdgeInsets.all(4.0),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Theme.of(context).scaffoldBackgroundColor,
+               sliver:           SliverAppBar(
+        leading: widget.leadingWidget,
+        expandedHeight: widget.expandleHeight,
+        floating: true,
+        pinned: false,
+        flexibleSpace: FlexibleSpaceBar(
+        collapseMode: CollapseMode.parallax,
+        centerTitle: widget.centerTitile,
+        title: Container(
+        padding: EdgeInsets.all(4.0),
+        decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(10.0),
+        color: Theme.of(context).scaffoldBackgroundColor,
 //                    backgroundBlendMode: widget.ligthTitlemode?  BlendMode.softLight: BlendMode.clear
-                  ),
-                  child: Text(widget.titleMain,
-                      style: Theme.of(context).textTheme.headline6, textAlign: TextAlign.center,),
-                ),
-                background: widget.imageHeader),
+        ),
+        child: Text(widget.titleMain,
+        style: Theme.of(context).textTheme.headline6, textAlign: TextAlign.center,),
+        ),
+        background: widget.imageHeader),
+        ),
           ),
+
           SliverPersistentHeader(
             delegate: _SliverSingleTabDelegate(),
             pinned: true,
