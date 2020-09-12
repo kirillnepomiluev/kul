@@ -75,6 +75,10 @@ class _MainCollapsingToolbarState extends State<MainCollapsingToolbar>
                 ),
                 background: widget.imageHeader),
           ),
+          SliverPersistentHeader(
+            delegate: _SliverSingleTabDelegate(),
+            pinned: true,
+          )
 
         ];
       },
