@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kul/pages/anketaPage.dart';
 import 'package:kul/pages/homePage.dart';
 
 class Router {
@@ -7,6 +8,9 @@ class Router {
 
       case '/':
         return MaterialPageRoute(builder: (_) => HomePage());
+
+      case '/anketa':
+        return MaterialPageRoute(builder: (_) => AnketaPage());
 
       default:
         return MaterialPageRoute(

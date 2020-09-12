@@ -62,14 +62,7 @@ class _MainCollapsingToolbarState extends State<MainCollapsingToolbar>
         collapseMode: CollapseMode.parallax,
         centerTitle: widget.centerTitile,
         title: Container(
-        padding: EdgeInsets.all(4.0),
-        decoration: BoxDecoration(
-        borderRadius: BorderRadius.circular(10.0),
-        color: Theme.of(context).scaffoldBackgroundColor,
-//                    backgroundBlendMode: widget.ligthTitlemode?  BlendMode.softLight: BlendMode.clear
-        ),
-        child: Text(widget.titleMain,
-        style: Theme.of(context).textTheme.headline6, textAlign: TextAlign.center,),
+
         ),
         background: widget.imageHeader),
         ),
