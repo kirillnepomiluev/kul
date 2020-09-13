@@ -37,29 +37,32 @@ class _HomePageState extends State<HomePage> {
           Row(
             children: [
               Expanded(
-                child: Container(
-                  margin: EdgeInsets.all(20.0),
-                  child: Column(
-                    children: [
-                      myCard(context, color: Colors.white,elevation: 12,shadowColor: Colors.black,radius: 3,
-                          child: Container(
-                            margin: EdgeInsets.all(15.0),
+                child: Row(
+                  children: [
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.45,
+                      width: MediaQuery.of(context).size.width * 0.50,
+                      margin: EdgeInsets.all(20.0),
+                      child:
+                          myCard(context, color: Colors.white,elevation: 12,shadowColor: Colors.black,radius: 3,
+                              child: Container(
+                                margin: EdgeInsets.all(15.0),
 //                            height: MediaQuery.of(context).size.height * 0.4,
-                            child: Center(child: Text(
-                              'Уважаемые пользователи! У Вас есть возможность узнать о'
-                              'положенных Вам льготах, либо проверить себя в базе  данных Самарской области по отдельным льготным категориям. '
-                              'Для проверки учёта, введите свои данные и нажмите кнопку «Проверить»',
-                              textAlign: TextAlign.center,
-                              style: TextStyle(fontSize: 30),
-                            ),),
-                          )),
-                      Padding(padding: EdgeInsets.all(20),),
-                      Container(
-                        height: 150,
-                        width: 150,
-                        child: Image.asset('assets/family.png'),)
-                    ],
-                  ),
+                                child: Center(child: Text(
+                                  'Уважаемые пользователи! У Вас есть возможность узнать о'
+                                  'положенных Вам льготах, либо проверить себя в базе  данных Самарской области по отдельным льготным категориям. '
+                                  'Для проверки учёта, введите свои данные и нажмите кнопку «Проверить»',
+                                  textAlign: TextAlign.center,
+                                  style: TextStyle(fontSize: 36),
+                                ),),
+                              )),
+                    ),
+                    Container(
+                      margin: EdgeInsets.all(15),
+                      height: MediaQuery.of(context).size.height * 0.45,
+                      width: MediaQuery.of(context).size.width * 0.45,
+                      child: Image.asset('assets/family.png'),)
+                  ],
                 ),
               ),
             ],

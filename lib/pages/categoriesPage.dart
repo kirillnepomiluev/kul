@@ -75,10 +75,14 @@ class _CategoriesPageState extends State<CategoriesPage> {
                                         itemCount: snapshot.data.docs.length,
                                         itemBuilder:
                                             (BuildContext ctx, int index) {
-                                          return Container(
+                                          return Column(
+                                              crossAxisAlignment: CrossAxisAlignment.start,
+                                              children:[ InkWell(
                                             child: buildMYQuestion(context,
                                                 docsList.elementAt(index)),
-                                          );
+                                          ),
+                                              Container(height: 1,color: Colors.blue,)
+                                              ]);
                                         });
                                 }
                               },
@@ -142,13 +146,17 @@ class _CategoriesPageState extends State<CategoriesPage> {
                                                     itemCount: snapshot.data.docs.length,
                                                     itemBuilder:
                                                         (BuildContext ctx, int index) {
-                                                      return InkWell(
+                                                      return Column(
+                                                          crossAxisAlignment: CrossAxisAlignment.start,
+                                                          children:[ InkWell(
                                                         onTap: () { setState(() {
                                                           url2 = url2 + "/" + snapshot.data.docs.elementAt(index).id + "/razdels" + '/' + snapshot.data.docs.elementAt(index).id + "/razdels";
                                                         }); },
                                                         child: buildMYQuestion(context,
                                                             docsList.elementAt(index)),
-                                                      );
+                                                      ),
+                                                        Container(height: 1,color: Colors.red)
+                                                      ]);
                                                     });
                                             }
                                           },
@@ -158,13 +166,17 @@ class _CategoriesPageState extends State<CategoriesPage> {
                                           itemCount: snapshot.data.docs.length,
                                           itemBuilder:
                                               (BuildContext ctx, int index) {
-                                            return InkWell(
+                                            return Column(
+                                                crossAxisAlignment: CrossAxisAlignment.start,
+                                                children:[InkWell(
                                                 onTap: () { setState(() {
                                                   url2 = url2 + "/" + snapshot.data.docs.elementAt(index).id +"/categories";
                                                 }); },
                                               child: buildMYQuestion(context,
                                                   docsList.elementAt(index)),
-                                            );
+                                            ),
+                                              Container(height: 1,color: Colors.red,)
+                                            ]);
                                           })]);
                                   }
                                 },

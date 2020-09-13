@@ -73,7 +73,7 @@ class _AnketaPageState extends State<AnketaPage> {
                                    });
 
                                     return  Container(child: Row(children: <Widget>[
-                                      Expanded( flex: 3,
+                                      Expanded(
                                         child:  ListView.builder(
                                           shrinkWrap: true,
                                           physics: NeverScrollableScrollPhysics(),
@@ -88,21 +88,27 @@ class _AnketaPageState extends State<AnketaPage> {
                                             );
                                           }
                                       ),),
-                                      Expanded(child:
-                                        FlatButton(
-                                          onPressed: () {
-                                            Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+                                      Expanded(child: Container(child: Image.asset('assets/family.png'),),),
+                                      Expanded(
+                                          child:  Container(
+                                            decoration: BoxDecoration(
+                                              borderRadius: BorderRadius.circular(18),
+                                                border: Border.all(
+                                                color: Colors.blue,
+                                                width: 2,
+                                                style: BorderStyle.solid)),
+                                            height: MediaQuery.of(context).size.height * 0.6,
+                                            width: MediaQuery.of(context).size.height * 0.4,
+                                            child: Container(
+                                              margin: EdgeInsets.all(10),
+                                              child: FlatButton(
+                                              onPressed: () {
+                                              Navigator.of(context).push(MaterialPageRoute(builder: (context) {
                                               print( "lg" +lgotsList.toString() );
                                               return myLgotsPage(lgotsList);
-                                            }));
-                                          },
-                                          child:  Container(
-                                            height: MediaQuery.of(context).size.height * 0.3,
-                                            child: Text( " Доступно льгот: " + lgotsList.length.toString()),),
-                                        )
-                                        ,)
-
-
+                                              }));
+                                               },
+                                                child: Text( "Доступные льготы:" + lgotsList.length.toString(),style: TextStyle(fontSize: 30,fontWeight: FontWeight.bold),),),),),)
 
                                     ],),);
                                 }
@@ -124,8 +130,10 @@ class _AnketaPageState extends State<AnketaPage> {
     Map <String, dynamic> data = documentSnapshot.data();
     List<dynamic> answers = data["answers"]?? [];
 
-    return Container ( child: Column(children: <Widget>[
-      Container( child: Text(data["name"] ),),
+    return Container ( child: Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: <Widget>[
+      Container( child: Text(data["name"],style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.black), ),),
 
           Container(
             height:  MediaQuery.of(context).size.height*0.2,
@@ -137,14 +145,22 @@ class _AnketaPageState extends State<AnketaPage> {
 
                 itemBuilder: (context, item) {
                   // ignore: missing_required_param
-                  return FlatButton( child: Center(child: Container(
-
-                      child: Text(answers[item].toString())),),
-                    onPressed: () {
-                        setState(() {
-                          url = url + "/" + documentSnapshot.id + "/" + item.toString();
-                        });
-                    },
+                  return Container(
+                    margin: EdgeInsets.all(10),
+                      decoration: BoxDecoration(
+                          borderRadius: BorderRadius.circular(18),
+                          border: Border.all(
+                              color: Colors.red,
+                              width: 1,
+                              style: BorderStyle.solid)),
+                    child: FlatButton( child: Center(
+                        child: Text(answers[item].toString(),style: TextStyle(fontWeight: FontWeight.bold,fontSize: 18,color: Colors.black),),),
+                      onPressed: () {
+                          setState(() {
+                            url = url + "/" + documentSnapshot.id + "/" + item.toString();
+                          });
+                      },
+                    ),
                   );
                 }),
           ),
