@@ -1,16 +1,18 @@
 # kul
 
-A new Flutter application.
+[KUL_bot](http://github.com/WerWebWer/KUL_bot") –  прототип команды 1DevFull участника Цифрового прорыва 2020 Приволжского IT хаба.
+Это frontend репозиторий.
+Backend - https://github.com/WerWebWer/KUL_bot  . (
+Решение - чат бот, позволяющий пользователю, ответив на вопросы получить информацию о доступных ему льготах, а так же помочь с офромлением документов.  Нейронная сеть обучающаяся на результатах ответов подбирает оптимальную последовательность вопросов.
+Ссылка на чат бот - @kul_1devfull_bot   (Telegram))
 
-## Getting Started
+Данный front End - это исходные файлы Flutter проекта. можно сделать build web App, Android и IOS/
+Версия  WebApp, которую можно запустить в браузере в директории build/web
 
-This project is a starting point for a Flutter application.
+Что бы сделать билд Андроид или WebApp нужжно среду разработки visual studio или Android Studio для Ios нужен Xcode.
+ Так же установлений плагин Flutter и Flutter SDK
 
-A few resources to get you started if this is your first Flutter project:
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
