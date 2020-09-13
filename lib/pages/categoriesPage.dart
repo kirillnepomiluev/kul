@@ -6,6 +6,7 @@ import 'package:kul/widgets/myCard.dart';
 
 import '../main.dart';
 import '../topTabBarSilver.dart';
+import 'lgotInfoPage.dart';
 
 class CategoriesPage extends StatefulWidget {
   @override
@@ -78,7 +79,7 @@ class _CategoriesPageState extends State<CategoriesPage> {
                                           return Column(
                                               crossAxisAlignment: CrossAxisAlignment.start,
                                               children:[ InkWell(
-                                            child: buildMYQuestion(context,
+                                            child: buildMYQuestionLgots(context,
                                                 docsList.elementAt(index)),
                                           ),
                                               Container(height: 1,color: Colors.blue,)
@@ -199,5 +200,14 @@ class _CategoriesPageState extends State<CategoriesPage> {
     Map<String, dynamic> data = documentSnapshot.data();
 
     return  Container(child: Text(data["name"]));
+  }
+  Widget buildMYQuestionLgots(
+      BuildContext context, DocumentSnapshot documentSnapshot) {
+    Map<String, dynamic> data = documentSnapshot.data();
+
+    return  FlatButton(onPressed: () {
+      Navigator.of(context).push(MaterialPageRoute(builder: (context) { return LgotInfoPage(documentSnapshot.id); }));
+    },
+    child: Text(data["name"]));
   }
 }

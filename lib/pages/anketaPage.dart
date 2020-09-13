@@ -133,7 +133,7 @@ class _AnketaPageState extends State<AnketaPage> {
     return Container ( child: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: <Widget>[
-      Container( child: Text(data["name"],style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.black), ),),
+      Container( child: Text(data["name"]?? "",style: TextStyle(fontWeight: FontWeight.bold,fontSize: 30,color: Colors.black), ),),
 
           Container(
             height:  MediaQuery.of(context).size.height*0.2,

@@ -6,6 +6,7 @@ import 'package:kul/widgets/myCard.dart';
 
 import '../main.dart';
 import '../topTabBarSilver.dart';
+import 'lgotInfoPage.dart';
 
 class myLgotsPage extends StatefulWidget {
   List<String> idsLgots;
@@ -85,10 +86,12 @@ class _myLgotsPageState extends State<myLgotsPage> {
                                   FlatButton(
                                     onPressed: () {
 
+
                                     },
                                     child:  Container(
                                       height: MediaQuery.of(context).size.height * 0.3,
-                                      child: Text( " Доступно льгот: " + lgotsList.length.toString()),),
+                                      child: Center(child:  Text( "Доступно льгот: " + lgotsList.length.toString()),)
+                                    ),
                                   )
                                     ,)
                                 ],),),
@@ -123,8 +126,8 @@ class _myLgotsPageState extends State<myLgotsPage> {
 
         child: Text(name)),
       onPressed: () {
-
-      },
+        Navigator.of(context).push(MaterialPageRoute(builder: (context) { return LgotInfoPage(documentSnapshot.id); }));
+            },
     ));
   }
 }
